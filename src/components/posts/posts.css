@@ -1,0 +1,6 @@
+.posts{
+    flex :9;
+    display: flex;
+    flex-wrap:  wrap; /* items are onto one line or onto multiple lines */
+    margin: 20px;
+}
