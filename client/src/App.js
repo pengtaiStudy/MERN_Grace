@@ -6,7 +6,7 @@ import Login from "./pages/login/Login";
 import Register from "./pages/Register/Register";
 import React from "react";
 import Single from "./pages/single/Single"
-import {BrowserRouter as Router,Routes,Route,Link} from "react-router-dom";
+import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 //Switch is replaced by Routes in updated version.  
 
 function App() {
