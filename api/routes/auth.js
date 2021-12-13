@@ -23,9 +23,9 @@ router.post('/register', async (req, res)=> {
 //Login
 router.post("/login", async ( req, res) => {
     try {
-        const user  = await User.findOne({usernaem : req.body.username})
+        const user  = await User.findOne({username : req.body.username})
         !user && res.status(400).json("Wrong credentials!");
-        
+
         const validated = await bcrypt.compare(req.body.password, user.password);
         //bcrypt.compare(data, encrpted data in DB)
         //automatically encrypted data and compare with the encrypted data in DB. 
