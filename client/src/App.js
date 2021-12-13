@@ -4,13 +4,14 @@ import Write from "./pages/write/Write";
 import Settings from "./pages/settings/Settings";
 import Login from "./pages/login/Login";
 import Register from "./pages/Register/Register";
-import React from "react";
+import React, { useContext } from "react";
 import Single from "./pages/single/Single"
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
+import { Context } from "./context/Context";
 //Switch is replaced by Routes in updated version.  
 
 function App() {
-  const user = false;
+  const {user} = useContext(Context);
   return (
     <Router>
       <TopBar/>
