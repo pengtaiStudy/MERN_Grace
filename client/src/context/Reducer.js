@@ -26,6 +26,26 @@
                 isFetching:false,
                 error : false   
             };
+
+            case "Update_START" : 
+            return {
+               ...state,
+               isFetching:true 
+            };
+        
+         case "Update_SUCCESS" : 
+            return {
+                user : action.payload,
+                isFetching:false,
+                error : false   
+            };
+        
+        case "Update_FAILURE" : 
+            return {
+                user :state.user,
+                isFetching:false,
+                error : true   
+            };
         default:
             return state;
     }
