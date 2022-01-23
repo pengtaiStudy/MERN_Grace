@@ -15,9 +15,9 @@
     "path": "^0.12.7"
   },
   "scripts": {
-    "start": "nodemon api/index.js",
-    "dev" : "concurrently \"npm run start\" \"npm run start --prefix client\""
+    "start": "node api/index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
   },
-  "author": "",
+  "author": "Sue Kim",
   "license": "ISC"
 }

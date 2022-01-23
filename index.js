@@ -13,15 +13,12 @@ dotenv.config();
 app.use(express.json());
 app.use("/images", express.static(path.join(__dirname, "/images")));
 
-/*
-After Mongoose 6 release, those options are not supported, provided as default
-
-mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser : true,
-    useUnifiedTopology : true,
-    useCreateIndex : true,
-}).then(console.log("Connected to MongoDB.")).catch((err)=> console.log(err));
-*/
+app.use(express.static('client/build'));
+app.get("*", (req, res) => {
+  res.sendFile(require('path')
+    .resolve(__dirname, 'client', 'build', 'index.html'),
+  );
+})
 
 mongoose
     .connect(process.env.MONGO_URL)
@@ -38,15 +35,15 @@ mongoose
     })
 
 const upload = multer({storage:storage});
-app.post("/api/upload", upload.single("file"), (req, res)=>{
+app.post("/upload", upload.single("file"), (req, res)=>{
     res.status(200).json("File has been uploaded");
 });
 
-app.use("/api/auth", authRoute);
-app.use("/api/users", userRoute);
-app.use("/api/posts", postRoute);
-app.use("/api/categories", categoryRoute);
+app.use("/auth", authRoute);
+app.use("/users", userRoute);
+app.use("/posts", postRoute);
+app.use("/categories", categoryRoute);
 
-app.listen("5000", () => {
+app.listen(process.env.PORT || 5000, () => {
     console.log("Backend is running");
 });
