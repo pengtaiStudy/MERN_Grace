@@ -18,7 +18,6 @@ router.put('/:id', async (req, res)=> {
             } catch(err){
                 res.status(500).json(err);
             }
-
     }else {
         res.status(401).json("You can update only your account");
     }
@@ -45,7 +44,6 @@ router.delete('/:id', async (req, res)=> {
         res.status(401).json("You can delete only your account");
     }
 });
-
 
 //Get User
 router.get("/:id", async (req, res) => {

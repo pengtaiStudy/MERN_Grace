@@ -1,0 +1,7 @@
+1. git push heroku deploy:main
+
+2. engines : node, npm version 확인
+
+3. 
+
+//deploy test용
